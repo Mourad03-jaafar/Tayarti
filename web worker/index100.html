@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Getting Server updated : </h2>
+        <div id="resss"></div>
+
+</body>
+
+<script>
+    if(typeof(EventSource) !== "undefined"){
+
+var source = new EventSource("demo_sse.asp");
+/*Create a new EventSource object, and specify the URL of the page
+ sending the updates (in this example "demo_sse.php")*/
+
+source.onmessage = function(event){
+    //Each time an update is received, the onmessage event occurs.
+    //onmessage	  When a message is received .
+    //onopen	When a connection to the server is opened.
+    //onerror	When an error occurs.
+    document.getElementById("resss").innerHTML +=
+     event.data + "<br>" ;
+};
+} else {
+document.getElementById("resss").innerHTML = 
+"Sorry, your browser does not support server-sent events ..."
+}
+</script>
+</html>

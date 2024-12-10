@@ -1,0 +1,15 @@
+admin
+admin_profile
+confirmation
+header
+index
+index2
+login
+logout
+navbar
+recherche 
+reservation
+script
+user_reservation
+userinfo
+vol_update

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="" type="image/x-icon" />
+
+      <!--=============== REMIXICONS ===============-->
+      <link
+         href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+         rel="stylesheet"
+      />
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="form.css" />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap"
+         rel="stylesheet"
+      />
+      <title>Homepage</title>
+   </head>
+   <body>
+      <nav id="navbar" class="navbar">
+         <!-- Navigation bar -->
+         <ul>
+            <a href="index.html"
+               ><img src="logo.png" alt="Logo" class="navbar-logo"
+            /></a>
+            <li><a href="index.html">Discover!</a></li>
+            <li><a href="about.html">Tickets</a></li>
+            <li><a href="service.html">Book</a></li>
+            <li><a href="booking.html">VIP</a></li>
+            <li><a href="contact.html">Help</a></li>
+            <li>
+               <a id="search"><i class="ri-search-line"></i></a>
+            </li>
+            <li class="login-li">
+               <button id="signupBtn">Login | Signup </button>
+            </li>
+         </ul>
+      </nav>
+
+      <div id="searchModal" class="search-container">
+         <input
+            class="search"
+            type="search"
+            name=""
+            placeholder="Looking for something?"
+         />
+         <button class="btn">Search</button>
+      </div>
+
+      <div class="background-image"></div>
+
+      <!-- ==================== SIGN UP MODAL====================-->
+      <div id="signupModal" class="modal">
+         <div class="sgncontainer">
+            <span class="close">&times;</span>
+            <h1 class="sgnh1">Create a Free Account</h1>
+            <div class="social-buttons">
+               <button class="social-btn google">
+                  <i class="ri-google-line"></i>
+               </button>
+               <button class="social-btn facebook">
+                  <i class="ri-facebook-fill"></i>
+               </button>
+            </div>
+            <div class="divider">
+               <span>or</span>
+            </div>
+            <form id="signup-form" action="signup.php" method="POST">
+               <label id="sgnlabel" for="email"></label>
+               <input
+                  id="sgninput"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+               />
+
+               <label id="sgnlabel" for="fullrname"></label>
+               <input
+                  id="sgninput"
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Your Full Name"
+                  required
+               />
+
+               <label id="sgnlabel" for="password"></label>
+               <input
+                  id="sgninput"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Your Password"
+                  minlength="8"
+                  required
+                  autocomplete="new-password"
+               />
+
+               <button class="sgnbutton" type="submit">Sign Up</button>
+            </form>
+
+            <p class="already">
+               Already have an account?
+               <a href="#" id="signup-to-login">Login instead</a>.
+            </p>
+         </div>
+      </div>
+      <!--==================== Login ====================-->
+      <div id="loginModal" class="modal">
+         <div class="login-container">
+            <span class="close">&times;</span>
+            <h1 class="login-h1">Log In to Your Account</h1>
+            <div class="social-buttons">
+               <button class="social-btn google">
+                  <i class="ri-google-line"></i>
+               </button>
+               <button class="social-btn facebook">
+                  <i class="ri-facebook-fill"></i>
+               </button>
+            </div>
+            <div class="divider">
+               <span>or</span>
+            </div>
+            <form id="login-form">
+               <label id="login-label" for="email"></label>
+               <input
+                  id="login-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+               />
+
+               <label id="login-label" for="password"></label>
+               <input
+                  id="login-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Your Password"
+                  minlength="8"
+                  required
+                  autocomplete="new-password"
+               />
+
+               <button class="login-button" type="submit">Log In</button>
+            </form>
+
+            <p class="forgot-pass">
+               Forgot your password?
+               <a href="#" id="login-to-reset">Reset it here</a>.
+            </p>
+            <p class="no-account">
+               Don't have an account?
+               <a href="#" id="login-to-signup">Sign up instead</a>.
+            </p>
+         </div>
+      </div>
+
+      <!--==================== FORGET YOUR PASSWORD ====================-->
+      <div id="resetModal" class="modal">
+         <div class="reset-container">
+            <span class="close">&times;</span>
+            <h1 class="reset-h1">Reset Your Password</h1>
+            <form id="reset-form">
+               <label id="reset-label" for="email"></label>
+               <input
+                  id="reset-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+               />
+
+               <button class="reset-button" type="submit">
+                  Reset Password
+               </button>
+            </form>
+
+            <p class="forgot-pass">
+               Remember your password?
+               <a href="#" id="reset-to-login">Log in instead</a>.
+            </p>
+            <p class="no-account">
+               Don't have an account?
+               <a href="#" id="reset-to-signup">Sign up instead</a>.
+            </p>
+         </div>
+      </div>
+
+      <!--==================== FORM SECTION ====================-->
+      <div class="section">
+         <div id="row" class="trip">
+            <input type="radio" class="flight-type" name="flight-type" />
+            <span class="form-label">Round trip</span>
+
+            <input type="radio" class="flight-type" name="flight-type" />
+            <span class="form-label">One way</span>
+
+            <input type="radio" class="flight-type" name="flight-type" />
+            <span class="form-label">Multi-city</span>
+         </div>
+
+         <div id="row" class="flying">
+            <div class="from">
+               <span class="form-label">Flying from</span>
+               <input
+                  class="form-border"
+                  type="text"
+                  placeholder="City or airport"
+               />
+            </div>
+            <div class="from">
+               <span class="form-label">Flying to</span>
+               <input
+                  class="form-border"
+                  type="text"
+                  placeholder="City or airport"
+               />
+            </div>
+         </div>
+
+         <div id="row" class="flying">
+            <div class="from">
+               <span class="form-label">Flying from</span>
+               <input
+                  class="form-border"
+                  type="date"
+                  placeholder="dd/mm/yyyy"
+               />
+            </div>
+            <div class="from">
+               <span class="form-label">Returning</span>
+               <input
+                  class="form-border"
+                  type="date"
+                  placeholder="dd/mm/yyyy"
+               />
+            </div>
+         </div>
+         <div id="row" class="flying">
+            <div class="from">
+               <span class="form-label">Adults (18+)</span>
+               <select class="form-border" id="select">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+               </select>
+            </div>
+
+            <div class="from">
+               <span class="form-label">Children (0-17)</span>
+               <select class="form-border" id="select">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+               </select>
+            </div>
+         </div>
+         <div id="row" class="flying">
+            <div class="from">
+               <span class="form-label">Travel class</span>
+               <select class="form-border" id="select">
+                  <option>Economy class</option>
+                  <option>Business class</option>
+                  <option>First Class</option>
+               </select>
+            </div>
+            <div><button class="flights-btn">SHOW FLIGHTS</button></div>
+         </div>
+      </div>
+
+      <script src="script.js"></script>
+   </body>
+</html>

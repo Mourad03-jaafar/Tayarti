@@ -1,0 +1,48 @@
+/* ///////////////////// NAVBAR CSS //////////////////////*/
+
+.navbar {
+   z-index: 3;
+}
+
+.nav-link {
+   color: white !important;
+}
+.nav-item {
+   margin-right: 40px;
+   margin-left: 40px;
+}
+.navbar-brand {
+   background-image: url("../img/logo.png");
+   background-size: cover;
+   width: 30px;
+   height: 30px;
+}
+.bg-lights {
+   background-color: #1f020ada !important;
+}
+
+a.bg-lights:focus,
+a.bg-lights:hover,
+button.bg-light:focus,
+button.bg-light:hover {
+   background-color: #1076ca !important;
+}
+/* ///////////////////// INDEX  //////////////////////*/
+
+.picture {
+   position: absolute;
+   width: 100%;
+   height: 480px;
+   left: 0;
+   top: 0;
+   object-fit: cover;
+   z-index: 0;
+}
+
+.text {
+   padding: 0;
+   position: relative;
+   z-index: 1;
+   margin: 7% 13% auto 7%;
+   text-align: center;
+}

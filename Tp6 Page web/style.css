@@ -1,0 +1,92 @@
+/* Style du corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Style des titres */
+h1, h2 {
+    color: #333;
+}
+
+/* Style des liens */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style des formulaires */
+form {
+    margin-bottom: 20px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+form label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+}
+
+form input[type="text"] {
+    width: 250px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"],
+form input[type="reset"],
+form button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover,
+form input[type="reset"]:hover,
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Style des tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Style des messages d'erreur */
+span.error {
+    color: red;
+}
+
+/* Style des boutons de confirmation */
+div.confirmation a,
+div.confirmation input[type="submit"] {
+    background-color: #dc3545;
+}
+
+div.confirmation a:hover,
+div.confirmation input[type="submit"]:hover {
+    background-color: #c82333;
+}
