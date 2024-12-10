@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <link rel="icon" href="jim.jpg">
+</head>
+<style>
+    #div1{
+        width: 340px;
+        height: 203px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+    }
+
+    #div2, #div3{
+        float: left;
+        width: 160px;
+        height: 260px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <h1>Html GeoLocation </h1>
+    <p>Click to the button to get your coordinates.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <p id="demo"></p>
+
+    <hr>
+
+
+    <h1>Html Drag and Drop AI</h1>
+    <p>Drag the image below into the rectangle :</p>
+    <div id="div1" ondrop="drop(event)" 
+    ondragover="allowDrop(event)"></div>
+    <br>
+    <img id="d1" src="mountains-1587287.jpg" alt="Montains"
+    draggable="true" ondragstart="drag(event)"
+    width="336" height="200">
+
+    <hr>
+
+    <h2>Drag and drop :</h2>
+    <p>Drag the image back and forth between the two div elemenets :</p>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="woh.jpg" alt="Rabi3"
+        draggable="true" ondragstart="drag(event)"
+        id="dr1" width="150" height="250">
+        <!-- draggable="true"== ya3ni najem nhezo -->
+        <!-- ondragstart attribute calls a function, drag(event),
+           that specifies what data to be dragged :
+           dataTransfer.setData() method sets the data type 
+           and the value of the dragged data -->
+
+        <!-- ondragover specifies where the dragged data can be dropped.
+        **By default, data/elements cannot be dropped in other elements**
+        =>  event.preventDefault() method for 
+        prevent the default handling-->
+
+        <!-- ondrop attribute calls a function, drop(event) الاسقاط
+        "preventDefault()" to prevent the browser default handling of the data
+        Get the dragged data with the "dataTransfer.getData()" method.
+        => This method will return any data that was set
+         to the same type in the setData() method
+         -The dragged data is the id of the dragged element ("drag1")
+         -Append the dragged element into the drop element -->
+
+    </div>
+
+    <div id="div3" ondrop="drop(event)"
+    ondragover="allowDrop(event)"></div>
+
+    <hr>
+    <br><br>
+
+    <h2>Web Storage (Local Storage): </h2>
+    <p>Local Storage : stores data with no expiration date
+         (ما غير تاريخ صلوحية) </p>
+    <div id="result"></div>
+
+
+    <hr>
+    <br> <br>
+    <h2>Counter Button : </h2>
+    <button onclick="clickCounter()" type="button">Click Me !</button>
+    <div id="res"></div>
+    <p>Click the button to see the counter increase.</p>
+    <p>Close the browser tab(or window), and try again, and the counter
+        will continue to count (is not reset). </p>
+
+
+    <hr>
+    <br><br>
+
+    <button onclick="clickCounterr()" type="button">Click Me Honey !
+    </button>
+    <div id="ress"></div>
+    <p>Click The button to see the counter increase.</p>
+    <p>Close the browser tab (or window), and try again, 
+        and the counter is reset. </p>
+
+
+    <h3>=> The difference between localStorage and sessionStorage <br>
+        the localStorage even you reload the page the storage will 
+        be the same . <br>
+        the sessionStorage when you reload the page all the storage will
+        be gone . <br> 
+        => mathalan nombre ta3 click fi localStorage 9ad ma na3mel
+        reload mayetbadalche w yo93od howa nafso <br> w ki na3mel reload fi sessionStorage
+        nbr de click yarja3 m sfir.
+
+    </h3>
+<hr>
+<br><br>
+
+    <h1>Web Workers :</h1>
+    <p><h2>What is a Web Worker ? </h2><br>
+        When executing scripts in an HTML page,
+         the page becomes unresponsive until the script is finished. <br>
+        A web worker is a JavaScript that runs in the background,<br>
+         independently of other scripts, without affecting 
+          the performance of the page. You can continue to do
+           whatever you want: <br>
+           clicking, selecting things, etc., while the web worker runs
+            in the background.</p>
+
+    <h3>Count numbers : <br><output id="resl"></output> </h3>
+    <button onclick="startWorker()"> Start Worker </button>
+    <button onclick="stopWorker()"> Stop Worker </button>
+
+
+
+    <p>Since web workers are in external files,
+         they do not have access to the following JavaScript objects: <br>
+         <br>
+        The window object. <br>
+        The document object. <br>
+        The parent object. </p>
+
+
+    <hr>
+    <br><br>
+
+    <h1> HTML Server-Sent Events (SSE) </h1>
+    <p>A server-sent event is when a web page 
+        automatically gets updates from a server. <br>
+
+        This was also possible before, but the web page would have 
+        to ask if any updates were available. With server-sent events,
+         the updates come automatically. <br>
+        
+        Examples: Facebook/Twitter updates, stock price updates,
+         news feeds, sport results, <br>
+    
+        </p>
+
+        <h2>Getting Server updated : </h2>
+        <div id="resss"></div>
+
+
+</body>
+
+
+<script>
+
+    if(typeof(EventSource) !== "undefined"){
+
+        var source = new EventSource("demo_sse.php");
+
+        source.onmessage = function(event){
+            document.getElementById("resss").innerHTML +=
+             event.data + "<br>" ;
+        };
+    } else {
+        document.getElementById("resss").innerHTML = 
+        "Sorry, your browser does not support server-sent events ..."
+    }
+
+
+
+
+    var w;
+
+    function startWorker(){
+        if(typeof(Worker) !== "undefined"){
+            if(typeof(w) == "undefined"){
+                w = new Worker("demo_workers.js");
+                /*checks if the worker already exists,
+                 if not - it creates a new web worker object
+                  and runs the code in "demo_workers.js" */
+            }
+            w.onmessage = function(event){
+                document.getElementById("resl").innerHTML = 
+                event.data;
+                /*Then we can send and receive messages from the web worker.
+
+                Add an "onmessage" event listener to the web worker.*/
+
+                /*When the web worker posts a message, the code within
+                 the event listener is executed. The data from
+                  the web worker is stored in event.data.*/
+
+
+            };
+        } else {
+            document.getElementById("resl").innerHTML = 
+            "Sorry, your browser does not support web Workers ...";
+        }
+    }
+
+    function stopWorker(){
+        w.terminate();//To terminate a web worker use the terminate() method:
+        w = undefined;//Reuse the Web Worker عاود استعملوا
+    }
+
+
+
+
+
+
+
+
+
+
+
+    function clickCounterr(){
+        if(typeof(Storage) !== undefined){
+            if(sessionStorage.clickcount){
+                sessionStorage.clickcount =
+                Number(sessionStorage.clickcount)+1;
+        } else{
+            sessionStorage.clickcount = 1;
+        }
+        document.getElementById("ress").innerHTML = 
+        "You have Clicked the button " + sessionStorage.clickcount +
+        "time(s).";
+    }else {
+        document.getElementById("ress").innerHTML = 
+        "Sorry, Your browser does not support web Storage ...";
+    }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+    function clickCounter(){
+        if(typeof(Storage) !== undefined){
+            if(localStorage.clickcount){
+                localStorage.clickcount =
+                 Number(localStorage.clickcount)+1;
+            } else{
+                localStorage.clickcount=1;
+            }
+            document.getElementById("res").innerHTML =
+            "You have clicked the button " + localStorage.clickcount +
+            " time(s)." ; 
+        } else {
+            document.getElementById("res").innerHTML = 
+            "Sorry, Your browser doesn't support web Storage..."
+        }
+    }
+
+
+
+
+
+
+
+
+
+    //check browse support
+    if(typeof(Storage) !== "undefined"){
+        
+        //store تخزين المعلومات
+        localStorage.setItem("lastname", "Mourad");
+        
+        /*Create a localStorage name/value pair with
+         name="lastname" and value="Smith"*/
+
+         /*it could by written like this :
+         **localStorage.lastname = "Smith";** */
+
+        /*window.localStorage - stores data with no expiration date
+window.sessionStorage - stores data for one session
+ (data is lost when the browser tab is closed)*/
+
+        //Retrieve استرجاع
+        document.getElementById("result").innerHTML = 
+        localStorage.getItem("lastname");
+        /*Retrieve the value of "lastname" and insert it into
+         the element with id="result"*/
+
+
+         //remove فسخ العقد
+         localStorage.removeItem("lastname");
+         // and if wanna show the result :
+         /* **document.getElementById("result").innerHTML = 
+         localStorage.removeItem("lastname"); ** */
+    }
+    else{
+        document.getElementById("result").innerHTML = 
+        "Sorry, your browser does not support Web Storage ...";
+    }
+
+
+    /* Name/value pairs are always stored as strings.
+     Remember to convert them to another format when needed!*/
+    
+    
+    function allowDrop(ev){
+        ev.preventDefault();
+    }
+
+
+    function drag(ev){
+        ev.dataTransfer.setData("Text", ev.target.id);
+    }
+
+
+    function drop(ev){
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+
+
+
+
+
+    const x = document.getElementById("demo");
+
+    function getLocation(){
+         if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+         }
+         //you can use instead of getCurrentPosition watchPosition
+         /*Returns the current position of the user and continues
+          to return updated position as the user moves
+           (like the GPS in a car).*/
+           //clearWatch() - Stops the watchPosition() method.
+
+         else{
+            x.innerHTML = "Geolocation is not allowed by this browser." ;
+         }
+    }
+
+    function showPosition(position){
+        x.innerHTML = "Latitude : " + position.coords.latitude +
+        "<br>Longitude : " + position.coords.longitude;
+    }
+
+    // You can use instead of coords.latitude and coords.longitude :
+    /*coords.accuracy == The accuracy of position
+    coords.altitude == The altitude in meters above the mean sea level
+    coords.speed == The speed in meters per second 
+    timestamp == The date/time of the response 
+    coords.heading == The heading as degrees clockwise from North
+    coords.altitudeAccuracy == The altitude accuracy of position*/
+
+    function showError(){
+        switch(error.code){
+            case error.PERMISSION_DENIED :
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+            case error.POSTION_UNAVAILABLE :
+                x.innerHTML = "Location indormation is unvailable"
+                break;
+            case error.TIMEOUT :
+                x.innerHTML = "The request to get user location timed out"
+                break;
+            case error.UNKNOWN_ERROR :
+                x.innerHTML = "An Unknow error occured"
+                break;
+        }
+    }
+
+
+</script>
+
+
+</html>

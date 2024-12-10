@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire TP5</title>
+
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],input[type="email"],textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+</style>
+
+
+<body>
+    <h2>Formulaire de Contact</h2>
+    <form action="traitement.php" method="post">
+        <label for="nom"> Nom :</label><br>
+        <input type="text" id="nom" name="nom" required><br>
+        <label for="prenom"> Prénom :</label><br>
+        <input type="text" id="prenom" name="prenom" required><br>
+        <label for="email"> Adresse E-mail :</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="message"> Message :</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+        <input type="submit" value="Envoyer">
+    </form>
+
+    <script>
+        function afficherPopup() {
+            var form = document.getElementById("myForm");
+            var nom = form.elements["nom"].value;
+            var prenom = form.elements["prenom"].value;
+            var email = form.elements["email"].value;
+            var message = form.elements["message"].value;
+
+            var contenu = "<h2> Merci pour votre message !</h2>" +
+                          "<p> Nom : " + nom + "</p>" +
+                          "<p> Prénom : " + prenom + "</p>" +
+                          "<p> Adresse E-mail : " + email + "</p>" +
+                          "<p> Message : " + message + "</p>";
+
+            var popup = window.open("", "_blank", "width=600,height=400");
+            popup.document.write(contenu);
+        }
+    </script>
+</body>
+</html>

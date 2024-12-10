@@ -1,0 +1,27 @@
+.navbar {
+    z-index: 3;
+ }
+ 
+ .nav-link {
+    color: white !important;
+ }
+ .nav-item {
+    margin-right: 40px;
+    margin-left: 40px;
+ }
+ .navbar-brand {
+    background-image: url("../img/logo.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+ }
+ .bg-lights {
+    background-color: #1f020ada !important;
+ }
+ 
+ a.bg-lights:focus,
+ a.bg-lights:hover,
+ button.bg-light:focus,
+ button.bg-light:hover {
+    background-color: #1076ca !important;
+ }

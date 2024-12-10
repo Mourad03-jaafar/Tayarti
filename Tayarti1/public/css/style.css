@@ -1,0 +1,375 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   background-image: url("background.jpg");
+   background-size: cover;
+}
+
+.navbar {
+   background-color: rgba(255, 255, 255, 0.109);
+}
+
+.navbar ul {
+   display: flex;
+   list-style-type: none;
+   align-items: center;
+   justify-content: center;
+}
+
+.navbar ul li {
+   margin: 10px;
+   padding: 10px;
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.navbar a {
+   text-decoration: none;
+   color: #ff7200;
+}
+a:hover {
+   cursor: pointer;
+}
+
+.navbar-logo {
+   height: 50px;
+   width: 50px;
+   margin-right: 10px;
+}
+
+#signupBtn {
+   padding: 10px;
+   background-color: #ff7200;
+   color: white;
+   border: none;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+#signupBtn:hover {
+   background-color: #ff5200;
+   color: #000;
+}
+
+/* SIGN UP */
+.sgncontainer {
+   background-color: #1b1a1ade;
+   width: 100%;
+   max-width: 400px;
+   margin: 50px auto;
+   padding: 30px;
+   border-radius: 5px;
+   color: white;
+}
+.modal {
+   display: none;
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.4);
+   backdrop-filter: blur(5px);
+}
+
+.sgncontainer {
+   margin: 15% auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 30%;
+   text-align: center;
+}
+
+.sgnh1 {
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.social-buttons {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+.close {
+   position: relative;
+   float: right;
+   top: -20px;
+   right: -10px;
+   color: #ffbcf1;
+   font-size: 30px;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+   color: #999;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+.social-btn {
+   flex: 1;
+   margin: 5px;
+   padding: 10px;
+   background-color: #007bff;
+   color: white;
+   font-size: 14px;
+   font-weight: bold;
+   border: none;
+   border-radius: 3px;
+   cursor: pointer;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+}
+
+.social-btn.google {
+   background-color: #ea4335;
+}
+
+.social-btn.facebook {
+   background-color: #1877f2;
+}
+
+.social-btn.apple {
+   background-color: #000;
+}
+
+.divider {
+   position: relative;
+   text-align: center;
+   margin: 20px 0;
+}
+
+.divider span {
+   background-color: #1b1a1ade;
+   padding: 0 10px;
+   position: relative;
+   z-index: 1;
+}
+
+.divider::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 50%;
+   border-top: 1px solid #ccc;
+}
+
+#sgnlabel {
+   display: block;
+   font-weight: bold;
+   margin-top: 10px;
+}
+
+#sgninput {
+   width: 100%;
+   padding: 5px;
+   font-size: 16px;
+   border: transparent;
+   border-radius: 4px;
+}
+
+.sgnbutton {
+   display: block;
+   width: 100%;
+   padding: 10px;
+   background-color: #46a7d9;
+   color: white;
+   font-size: 18px;
+   font-weight: bold;
+   border: none;
+   border-radius: 3px;
+   cursor: pointer;
+   margin-top: 20px;
+}
+
+.sgnbutton:hover {
+   background-color: #0056b3;
+}
+.already {
+   margin-top: 1rem;
+}
+
+/* LOGIN */
+.login-container {
+   background-color: #1b1a1ade;
+   width: 100%;
+   max-width: 400px;
+   margin: 50px auto;
+   padding: 30px;
+   border-radius: 5px;
+   color: white;
+}
+
+.login-container {
+   margin: 15% auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 30%;
+   text-align: center;
+}
+
+.login-h1 {
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+#login-label {
+   display: block;
+   font-weight: bold;
+   margin-top: 10px;
+}
+
+#login-input {
+   width: 100%;
+   padding: 5px;
+   font-size: 16px;
+   border: transparent;
+   border-radius: 4px;
+}
+
+.login-button {
+   display: block;
+   width: 100%;
+   padding: 10px;
+   background-color: #46a7d9;
+   color: white;
+   font-size: 18px;
+   font-weight: bold;
+   border: none;
+   border-radius: 3px;
+   cursor: pointer;
+   margin-top: 20px;
+}
+
+.login-button:hover {
+   background-color: #0056b3;
+}
+
+.forgot-pass,
+.no-account {
+   margin-top: 1rem;
+}
+/* RESET */
+.reset-container {
+   background-color: #1b1a1ade;
+   width: 100%;
+   max-width: 400px;
+   margin: 50px auto;
+   padding: 30px;
+   border-radius: 5px;
+   color: white;
+}
+
+.reset-container {
+   margin: 15% auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 30%;
+   text-align: center;
+}
+
+.reset-h1 {
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+#reset-label {
+   display: block;
+   font-weight: bold;
+   margin-top: 10px;
+}
+
+#reset-input {
+   width: 100%;
+   padding: 5px;
+   font-size: 16px;
+   border: transparent;
+   border-radius: 4px;
+}
+
+.reset-button {
+   display: block;
+   width: 100%;
+   padding: 10px;
+   background-color: #46a7d9;
+   color: white;
+   font-size: 18px;
+   font-weight: bold;
+   border: none;
+   border-radius: 3px;
+   cursor: pointer;
+   margin-top: 20px;
+}
+
+.reset-button:hover {
+   background-color: #0056b3;
+}
+
+.forgot-pass,
+.no-account {
+   margin-top: 1rem;
+}
+
+/* Search bar styles */
+#searchModal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   left: 0;
+   top: 50;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+   justify-content: center;
+   align-items: center;
+   backdrop-filter: blur(5px);
+}
+
+#searchModal .search-container {
+   background-color: #fefefe;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 80%; /* Could be more or less, depending on screen size */
+   max-width: 500px;
+}
+
+.search {
+   height: 50px;
+   width: 500px;
+   border: 1px solid #ff7200;
+   border-right: none;
+   font-size: 16px;
+   border-bottom-left-radius: 5px;
+   border-top-left-radius: 5px;
+   text-align: center;
+}
+
+.btn {
+   background: #ff7200;
+   border: 1px solid #ff7200;
+   color: #fff;
+   font-size: 15px;
+   border-bottom-right-radius: 5px;
+   border-top-right-radius: 5px;
+   transition: 0.2s ease;
+   cursor: pointer;
+   height: 50px;
+   width: 150px;
+}
+
+.btn:hover {
+   color: #000;
+   background-color: #ff5200;
+}
+
+.search:focus {
+   outline: #ff7200;
+}
