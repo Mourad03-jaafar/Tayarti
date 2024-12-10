@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link th:replace="~{/template/index:: link}" reel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Customer</title> 
+    <link rel="stylesheet" th:href="@{/css/style.css}">  
+</head>
+<body>
+    <form th:action="@{/chnage-costumer/{id}(id=${id})}" 
+    th:object="${CustomerChange}"
+    method="post">
+    <fieldset>
+        <legend><h1>Changer un costumer</h1></legend>
+        <p>
+            <label>fullname :</label>
+            <input type="text" th:field="*{fullname}"/>
+        </p>
+        <p>
+            <label>Tel :</label>
+            <input type="text" th:field="*{tel}"/>
+        </p>
+        <p>
+            <label>Email :</label>
+            <input type="text" th:field="*{email}"/>
+        </p>
+        <button type="submit" class="btn btn-primary">Well Done</button>
+    </fieldset>
+    </form>
+</body>
+</html>

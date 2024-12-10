@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-Costumer</title>
+    <link th:replace="~{/template/index:: link}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <fieldset>
+        <legend><h1>Add<mark> Customer</mark></h1></legend>
+        <p>
+            <label>fullname</label>
+            <input type="text" th:field="*{fullname}"/>
+        </p>
+        <p>
+            <label>email</label>
+            <input type="text" th:field="*{tel}"/>
+        </p>
+        <p>
+            <label class="form-label mt-4">email :
+                <input  type="text" th:field="*{email}"/>
+            </label>
+        </p>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </fieldset>
+</head>
+<body>
+    
+</body>
+</html>

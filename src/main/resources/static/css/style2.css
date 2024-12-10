@@ -1,0 +1,29 @@
+.container {
+    margin: 20px;
+    border: 1px solid #ccc; /* Border for the frame */
+    padding: 20px;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+}
+
+.product-info img {
+    margin-right: 20px; /* Adjust the margin as needed */
+    max-width: 80px; /* Adjust the width of the image */
+    height: auto;
+    border: 1px solid #ccc; 
+    padding: 5px;
+}
+
+.product-details {
+    margin-left: 20px; 
+    border: #ccc;
+}
+
+.product-add{
+    margin-left:500px ;
+}
+
+

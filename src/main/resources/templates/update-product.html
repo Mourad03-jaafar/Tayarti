@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link th:replace="~{/template/index:: link}" reel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title> 
+    <link rel="stylesheet" th:href="@{/css/style.css}">  
+</head>
+<body>
+    <form th:action="@{/update-product/{id}(id=${id})}" 
+    th:object="${productForm}"
+    method="post">
+    <fieldset>
+        <legend><h1>Mise à jour</h1></legend>
+        <p>
+            <label>Code :</label>
+            <input type="text" th:field="*{code}"/>
+        </p>
+        <p>
+            <label>Nom :</label>
+            <input type="text" th:field="*{nom}"/>
+        </p>
+        <p>
+            <label>Prix :</label>
+            <input type="text" th:field="*{prix}"/>
+        </p>
+        <p>
+            <label>Image :</label>
+            <input type="text" th:field="*{image}"/>
+        </p>
+        <button type="submit" class="btn btn-primary">Well Done</button>
+    </fieldset>
+    </form>
+</body>
+</html>

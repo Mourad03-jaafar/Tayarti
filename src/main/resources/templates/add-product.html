@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link th:replace="~{/template/index:: link}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <form th:action="@{/add-product}" 
+    th:object="${productForm}"
+    method="post">
+    <fieldset>
+        <legend><h1>Ajouter un <mark> Produit</mark></h1></legend>
+        <p>
+            <label>Code :</label>
+            <input type="text" th:field="*{code}"/>
+        </p>
+        <p>
+            <label>Nom :</label>
+            <input type="text" th:field="*{nom}"/>
+        </p>
+        <p>
+            <label class="form-label mt-4">Prix :
+                <input  type="text" th:field="*{prix}"/>
+            </label>
+        </p>
+        <p>
+            <label>Image :</label>
+            <input type="text" th:field="*{image}"/>
+        </p>
+        <button type="submit" class="btn btn-primary">Creer</button>
+    </fieldset>
+    </form>
+</body>
+</html>

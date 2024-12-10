@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link th:replace="~{/template/index:: link}" reel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mourad's Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/style2.css}">
+</head>
+<body>
+    <th:block th:replace="~{/template/index:: header}"></th:block>
+    <h1 style="color: rgba(0, 0, 255, 0.671);">The List of Products</h1>
+    <div class="product-add">
+        <a href="/add-product"><button type="button" class="btn btn-success">Add Product</button></a> </div>
+    <div class="container">
+        <div th:each ="product:${products}" class="product-info">
+            <div th:if="${product.getImage()}">
+                <img th:src="@{|${product.getImage()}|}" alt="80" height="80">
+            </div>
+            <div class="product-details">
+                <div th:text="|Code:${product.getCode()}|"> Code : </div>
+                <div> Nom : <span th:text="${product.getNom()}"></span></div>
+                <div> Prix : <span th:text="${product.getPrix()}"></span></div>
+            <div class="product-bt">
+                <a th:href="@{|/delete-product/${product.id}|}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+                <a th:href="@{|/update-product/${product.id}|}"><button type="button" class="btn btn-outline-info">Update</button></a>
+            </div>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
